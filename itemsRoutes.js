@@ -1,3 +1,5 @@
+"use strict";
+
 const express = require("express");
 const items = require("./fakeDb");
 const { NotFoundError } = require("./expressError")

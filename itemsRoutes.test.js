@@ -2,10 +2,10 @@ const request = require("supertest");
 const items = require("./fakeDb");
 const app = require("./app");
 
-// const cherry = { name: "cherry", price: "1.00" };
+const cherry = { name: "cherry", price: "1.00" };
 
 beforeEach(function () {
-  items.items = [{ name: "cherry", price: "1.00" }];
+  items.items.push(cherry);
 });
 
 afterEach(function () {
@@ -60,7 +60,7 @@ describe("GET /items/:name", function () {
 });
 
 /** PATCH /items/:name - modifies item. */
-
+//TODO: test only updating one thing
 describe("PATCH /items/:name", function () {
   it("Modifies an item", async function () {
     const resp = await request(app)
