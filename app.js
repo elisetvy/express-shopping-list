@@ -1,5 +1,6 @@
+"use strict";
+
 const express = require("express");
-const items = require("./fakeDb");
 const itemRoutes = require("./itemsRoutes")
 
 const app = express()

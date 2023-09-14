@@ -10,6 +10,7 @@ router.get("/", function (req, res) {
   return res.json(items);
 });
 
+//TODO: send bad request if no request body
 /** Accepts JSON body, adds item, and returns it. */
 router.post("/", function (req, res) {
   const name = req.body.name;
@@ -23,6 +24,7 @@ router.post("/", function (req, res) {
 router.get("/:name", function (req, res) {
   const itemName = req.params.name;
 
+  //filter method
   for (const item of items.items) {
     if (item.name === itemName) {
       return res.json(item);
@@ -32,6 +34,7 @@ router.get("/:name", function (req, res) {
   throw new NotFoundError(`${itemName} was not found`)
 });
 
+//TODO: search for item first, then see which fields to update, optional chaining, or short circuit
 /** Accepts JSON body, modifies item, and returns it. */
 router.patch("/:name", function (req, res) {
   const itemName = req.params.name;
@@ -50,6 +53,7 @@ router.patch("/:name", function (req, res) {
   throw new NotFoundError(`${itemName} was not found`)
 });
 
+//TODO: all routes: give example of returned JSON
 /** Deletes items, returns JSON confirming deletion */
 router.delete("/:name", function (req, res) {
   const itemName = req.params.name;
