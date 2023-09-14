@@ -14,10 +14,10 @@ router.post("/", function (req, res) {
   const price = req.body.price;
   const newItem = { name, price };
   items.items.push(newItem);
-  return res.json({ added: newItem });
+  return res.status(201).json({ added: newItem });
 });
 
-/** Accepts JSON body, adds item, and returns it. */
+/** Returns single item. */
 router.get("/:name", function (req, res) {
   const itemName = req.params.name;
 
